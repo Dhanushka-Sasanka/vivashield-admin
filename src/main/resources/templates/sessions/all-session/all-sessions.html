@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head th:replace="fragments/header-config-fragment :: meta-info-fragment">
+
+
+</head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+
+    <!-- NAVBAR -->
+    <div th:replace="fragments/admin-nav-bar-fragment :: nav-bar-fragment"></div>
+    <!-- END NAVBAR -->
+
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <nav>
+            <ul class="nav" id="sidebar-nav-menu">
+
+                <li><a th:href="@{/}"><i class="ti-dashboard"></i> <span class="title">Home</span></a></li>
+
+                <li class="menu-group">Students</li>
+                <li class="panel">
+                    <a href="#student" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i class="ti-panel"></i> <span class="title">Students</span> <i class="icon-submenu ti-angle-left"></i></a>
+                    <div id="student" class="collapse ">
+                        <ul class="submenu">
+                            <li><a th:href="@{students}" class="">All Students</a></li>
+                            <li><a th:href="@{new-student}" class="">New Student</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="menu-group">Sessions</li>
+                <li class="panel">
+                    <a href="#session" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i class="ti-panel"></i> <span class="title">Sessions</span> <i class="icon-submenu ti-angle-left"></i></a>
+                    <div id="session" class="collapse ">
+                        <ul class="submenu">
+                            <li><a th:href="@{sessions}" class="active">All Sessions</a></li>
+                            <li><a th:href="@{new-session}"  class="">New Session</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+            <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>
+        </nav>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+
+            <div class="container-fluid">
+                <!-- your content goes here -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">All Students</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="datatable-basic" class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Browser</th>
+                                    <th>Operating System</th>
+                                    <th>Visits</th>
+                                    <th>New Visits</th>
+                                    <th>Bounce Rate</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Chrome</td>
+                                    <td>Macintosh</td>
+                                    <td>360</td>
+                                    <td>82.78%</td>
+                                    <td>87.77%</td>
+                                </tr>
+                                <tr>
+                                    <td>Chrome</td>
+                                    <td>Windows</td>
+                                    <td>582</td>
+                                    <td>87.24%</td>
+                                    <td>90.12%</td>
+                                </tr>
+                                <tr>
+                                    <td>Chrome</td>
+                                    <td>Linux</td>
+                                    <td>172</td>
+                                    <td>45.21%</td>
+                                    <td>48.81%</td>
+                                </tr>
+                                <tr>
+                                    <td>Chrome</td>
+                                    <td>iOS</td>
+                                    <td>86</td>
+                                    <td>35.23%</td>
+                                    <td>44.21%</td>
+                                </tr>
+                                <tr>
+                                    <td>Firefox</td>
+                                    <td>Windows</td>
+                                    <td>280</td>
+                                    <td>63.12%</td>
+                                    <td>89.34%</td>
+                                </tr>
+                                <tr>
+                                    <td>Firefox</td>
+                                    <td>Android</td>
+                                    <td>236</td>
+                                    <td>58.02%</td>
+                                    <td>76.19%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+
+
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <!-- footer -->
+    <footer>
+        <div th:replace="fragments/footer-fragment :: footer-fragment"></div>
+    </footer>
+    <!-- end footer -->
+
+</div>
+<!-- END WRAPPER -->
+
+<!--base script fragment-->
+<div th:replace="fragments/base-script-fragments :: base-script-js"></div>
+<!-- Datables Core -->
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net/jquery.dataTables.min.js}"></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-bs4/dataTables.bootstrap4.min.js}"></script>
+
+<!-- Datables Extension -->
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/dataTables.buttons.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.html5.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.print.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/plugins/jszip/jszip.min.js}" ></script>
+<!--<script type="application/javascript" th:src="@{/dist/plugins/pdfmake/pdfmake.min.js}" ></script>-->
+<!--<script type="application/javascript" th:src="@{/dist/plugins/pdfmake/vfs_fonts.js" ></script>-->
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons-bs4/buttons.bootstrap4.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-colreorder/dataTables.colReorder.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-colreorder-bs4/colReorder.bootstrap4.min.js}" ></script>
+
+<!-- Datatables Init -->
+<script  type="application/javascript" th:src="@{/dist/js/pages/tables-dynamic.init.min.js}" ></script>
+
+
+</body>
+
+</html>
