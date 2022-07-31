@@ -33,8 +33,8 @@ public class Session {
 
     private String status;
 
-    @OneToMany( mappedBy = "session", fetch = FetchType.LAZY, cascade = CascadeType.ALL )
-    private List<Student> studentList;
+    @OneToOne(mappedBy = "session")
+    private Student student;
 
     @Column(columnDefinition="LONGTEXT")
     private String openTabUrls;

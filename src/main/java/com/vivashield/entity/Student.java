@@ -21,6 +21,7 @@ public class Student {
     private String email;
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sessionID", referencedColumnName = "sessionID")
     private Session session;
 }

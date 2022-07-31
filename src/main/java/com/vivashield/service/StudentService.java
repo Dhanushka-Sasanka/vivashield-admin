@@ -41,11 +41,13 @@ public class StudentService {
         return map;
     }
 
-    public ResponseEntity<Student> searchStudent(Long sid) {
-        if (studentRepository.findById(sid).isPresent()) {
-            return new ResponseEntity<Student>(studentRepository.findById(sid).get(), HttpStatus.OK);
+    public ResponseEntity<Student> searchStudent(String email , String password) {
+        if (studentRepository.findByEmailAndPassword(email,password).isPresent()) {
+            return new ResponseEntity<Student>(studentRepository.findByEmailAndPassword(email,password).get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<Student>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 }

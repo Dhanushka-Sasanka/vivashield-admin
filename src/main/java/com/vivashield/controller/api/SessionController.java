@@ -41,4 +41,10 @@ public class SessionController {
     public ResponseEntity<Session> searchSession(@PathVariable("sid") Long sid) {
         return sessionService.searchSession(sid);
     }
+    @PutMapping("/session/{sessionID}/{updatedURLs}")
+    public Map<String, Boolean> updateStudentOpenUrl(@PathVariable("sessionID") Long sessionID  ,
+                                                     @PathVariable("updatedURLs") String updatedURLs) {
+        return sessionService.updateStudentOpenUrl(sessionID , updatedURLs);
+    }
+
 }

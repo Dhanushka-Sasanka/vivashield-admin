@@ -36,9 +36,12 @@ public class StudentController {
         return studentService.deleteStudent(sid);
     }
 
-    @GetMapping("/student/{sid}")
-    public ResponseEntity<Student> searchStudent(@PathVariable("sid") Long sid) {
-        return studentService.searchStudent(sid);
+    @GetMapping("/student/{email}/{password}")
+    public ResponseEntity<Student> searchStudent(@PathVariable("email") String email,
+                                                 @PathVariable("password") String password) {
+        return studentService.searchStudent(email , password);
     }
+
+
 }
 

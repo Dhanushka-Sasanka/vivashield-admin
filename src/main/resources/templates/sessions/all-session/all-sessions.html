@@ -66,56 +66,15 @@
                             <table id="datatable-basic" class="table table-hover table-bordered">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>Browser</th>
-                                    <th>Operating System</th>
-                                    <th>Visits</th>
-                                    <th>New Visits</th>
-                                    <th>Bounce Rate</th>
+                                    <th>Evaluator</th>
+                                    <th>Session ID</th>
+                                    <th>Session Name</th>
+                                    <th>Start Date</th>
+                                    <th>Start Time</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Chrome</td>
-                                    <td>Macintosh</td>
-                                    <td>360</td>
-                                    <td>82.78%</td>
-                                    <td>87.77%</td>
-                                </tr>
-                                <tr>
-                                    <td>Chrome</td>
-                                    <td>Windows</td>
-                                    <td>582</td>
-                                    <td>87.24%</td>
-                                    <td>90.12%</td>
-                                </tr>
-                                <tr>
-                                    <td>Chrome</td>
-                                    <td>Linux</td>
-                                    <td>172</td>
-                                    <td>45.21%</td>
-                                    <td>48.81%</td>
-                                </tr>
-                                <tr>
-                                    <td>Chrome</td>
-                                    <td>iOS</td>
-                                    <td>86</td>
-                                    <td>35.23%</td>
-                                    <td>44.21%</td>
-                                </tr>
-                                <tr>
-                                    <td>Firefox</td>
-                                    <td>Windows</td>
-                                    <td>280</td>
-                                    <td>63.12%</td>
-                                    <td>89.34%</td>
-                                </tr>
-                                <tr>
-                                    <td>Firefox</td>
-                                    <td>Android</td>
-                                    <td>236</td>
-                                    <td>58.02%</td>
-                                    <td>76.19%</td>
-                                </tr>
+                                <tbody id="sessionTable">
                                 </tbody>
                             </table>
                         </div>
@@ -158,6 +117,7 @@
 <!-- Datatables Init -->
 <script  type="application/javascript" th:src="@{/dist/js/pages/tables-dynamic.init.min.js}" ></script>
 
+<script  type="application/javascript" th:src="@{/dist/js/template-pages/session-controller.js}" ></script>
 
 </body>
 

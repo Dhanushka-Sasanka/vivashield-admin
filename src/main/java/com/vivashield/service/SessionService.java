@@ -50,4 +50,15 @@ public class SessionService {
         map.put("isDeleted", Boolean.FALSE);
         return map;
     }
+
+    public Map<String, Boolean> updateStudentOpenUrl(Long sessionID, String updatedURLs) {
+        Map<String, Boolean> map = new HashMap<>();
+        if (sessionRepository.findById(sessionID).isPresent()) {
+            sessionRepository.updateStudentOpenUrl( updatedURLs,sessionID );
+            map.put("isUpdated", Boolean.TRUE);
+            return map;
+        }
+        map.put("isUpdated", Boolean.FALSE);
+        return map;
+    }
 }
