@@ -49,4 +49,43 @@ $( document ).ready(function() {
 
     }
 
+    $('#student_register_btn').click(function () {
+        console.log("ADASDASD");
+        let firstName = $('#firstname').val();
+        let lastname = $('#lastname').val();
+        let email = $('#email').val();
+        let password = $('#password').val();
+        let studentForm = $('#student-form');
+
+        $.ajax({
+            type: "POST",
+            url: `${BASE_URL}api/student`,
+            async: true,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify({
+                firstName: firstName,
+                lastName: lastname,
+                email: email,
+                password: password
+            }),
+            success: function (res) {
+                console.log(res);
+                swal({
+                    title: "Success...!",
+                    text: `New Student has been updated..!. Student ID :${res.studentID}`,
+                    icon: "success",
+                });
+                studentForm[0].reset();
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    });
+
+
+
+
 });

@@ -53,6 +53,7 @@ $(document).ready(function () {
         let evaluatorName = $('#evaluator_name').val();
         let startedDate = $('#start_date').val();
         let startedTime = $('#start_time').val();
+        let sessionForm = $('#session-form');
 
         // console.log(`${email} : ${password}`);
 
@@ -77,6 +78,7 @@ $(document).ready(function () {
                     text: `New Session has been updated..!. Session ID :${res.sessionID}`,
                     icon: "success",
                 });
+                sessionForm[0].reset();
             },
             error: function (err) {
                 console.log(err);
