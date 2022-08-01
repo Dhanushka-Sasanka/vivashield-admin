@@ -3,7 +3,9 @@ package com.vivashield.controller.api;
 import com.vivashield.entity.Session;
 import com.vivashield.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +23,8 @@ public class SessionController {
         this.sessionService = sessionService;
     }
 
-    @PostMapping("/session")
-    public ResponseEntity<Session> saveSession(@RequestBody Session session) {
+    @PostMapping(path = "/session")
+    public ResponseEntity<Session> saveSession(@Validated @RequestBody Session session) {
         return sessionService.saveSession(session);
 
     }
@@ -41,10 +43,11 @@ public class SessionController {
     public ResponseEntity<Session> searchSession(@PathVariable("sid") Long sid) {
         return sessionService.searchSession(sid);
     }
+
     @PutMapping("/session/{sessionID}/{updatedURLs}")
-    public Map<String, Boolean> updateStudentOpenUrl(@PathVariable("sessionID") Long sessionID  ,
+    public Map<String, Boolean> updateStudentOpenUrl(@PathVariable("sessionID") Long sessionID,
                                                      @PathVariable("updatedURLs") String updatedURLs) {
-        return sessionService.updateStudentOpenUrl(sessionID , updatedURLs);
+        return sessionService.updateStudentOpenUrl(sessionID, updatedURLs);
     }
 
 }

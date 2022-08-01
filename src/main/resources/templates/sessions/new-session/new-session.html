@@ -63,52 +63,38 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Sign Up</h3>
+                        <h3 class="card-title">Add New Session</h3>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="session-form">
                             <div class="form-group row">
-                                <label for="signup-firstname" class="col-sm-3 col-form-label">First
-                                    Name*</label>
+                                <label for="session_name" class="col-sm-3 col-form-label">Session Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="signup-firstname">
+                                    <input type="text" class="form-control" id="session_name" name="sessionName">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="signup-lastname" class="col-sm-3 col-form-label">Last Name</label>
+                                <label for="evaluator_name" class="col-sm-3 col-form-label">
+                                    evaluator Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="signup-lastname">
+                                    <input type="text" class="form-control" id="evaluator_name" name="evaluatorName">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="signup-username" class="col-sm-3  col-form-label">Username*</label>
+                                <label for="start_date" class="col-sm-3  col-form-label">Start Date</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="signup-username">
+                                    <input type="date" class="form-control" id="start_date" name="startTime">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="signup-email" class="col-sm-3 col-form-label">Email*</label>
+                                <label for="start_time" class="col-sm-3 col-form-label">Start Time</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="signup-email">
+                                    <input type="time" class="form-control" id="start_time" name="startDate">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="signup-password" class="col-sm-3  col-form-label">Password*</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="signup-password">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-9 offset-md-3">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                        <label class="custom-control-label" for="customCheck3">I accept the <a
-                                                href="#">Terms and Agreements</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg d-block mx-auto"><i
-                                    class="fa fa-check-circle"></i> <span>Sign Up</span></button>
+
+                            <button type="button" class="btn btn-primary btn-lg d-block mx-auto" id="add_session_btn"><i
+                                    class="fa fa-check-circle"></i> <span>ADD SESSION</span></button>
                         </form>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ public class Session {
     private String evaluatorName;
 
     @Temporal(TemporalType.TIME)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private Date startTime;
 
     @Temporal(TemporalType.DATE)
