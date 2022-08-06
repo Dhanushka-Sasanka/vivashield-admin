@@ -1,6 +1,7 @@
 package com.vivashield.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,10 +34,13 @@ public class Session {
 
     private String status;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "session")
     private Student student;
 
     @Column(columnDefinition="LONGTEXT")
     private String openTabUrls;
+
+    private int awayHeadCount;
 
 }

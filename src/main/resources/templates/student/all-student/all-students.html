@@ -22,7 +22,9 @@
 
                 <li class="menu-group">Students</li>
                 <li class="panel">
-                    <a href="#student" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i class="ti-panel"></i> <span class="title">Students</span> <i class="icon-submenu ti-angle-left"></i></a>
+                    <a href="#student" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i
+                            class="ti-panel"></i> <span class="title">Students</span> <i
+                            class="icon-submenu ti-angle-left"></i></a>
                     <div id="student" class="collapse ">
                         <ul class="submenu">
                             <li><a th:href="@{students}" class="active">All Students</a></li>
@@ -33,17 +35,20 @@
 
                 <li class="menu-group">Sessions</li>
                 <li class="panel">
-                    <a href="#session" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i class="ti-panel"></i> <span class="title">Sessions</span> <i class="icon-submenu ti-angle-left"></i></a>
+                    <a href="#session" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="" class=""><i
+                            class="ti-panel"></i> <span class="title">Sessions</span> <i
+                            class="icon-submenu ti-angle-left"></i></a>
                     <div id="session" class="collapse ">
                         <ul class="submenu">
                             <li><a th:href="@{sessions}" class="">All Sessions</a></li>
-                            <li><a th:href="@{new-session}"  class="">New Session</a></li>
+                            <li><a th:href="@{new-session}" class="">New Session</a></li>
                         </ul>
                     </div>
                 </li>
 
             </ul>
-            <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>
+            <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i
+                    class="ti-arrows-horizontal"></i></button>
         </nav>
     </div>
     <!-- END LEFT SIDEBAR -->
@@ -73,6 +78,7 @@
                                     <th>E-mail</th>
                                     <th>Password</th>
                                     <th>Session</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody id="studentTable">
@@ -80,6 +86,41 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+
+                <div class="card" id="set_session_card">
+                    <div class="card-header">
+                        SET SESSION FOR STUDENT ID : <span class="text-center text-primary"
+                                                           id="studentIDForSession"></span>
+                    </div>
+                    <div class="card-body row">
+                        <div class="form-group col-md-4">
+                            <label for="select-session-box">SELECT SESSION</label>
+                            <select id="select-session-box" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 mt-4">
+                            <button type="button" class="btn btn-warning" id="student_session_update_btn">
+                                <i class="fa fa-check-circle"></i> <span>UPDATE</span></button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card" id="set_detail_card">
+                    <div class="card-header">
+                        ALL SESSION DETAILS STUDENT ID : <span class="text-center text-primary"
+                                                           id="studentIDForSessionDetails"></span>
+&nbsp;&nbsp;
+                        AWAY COUNT : <span class="text-center text-primary"
+                                                               id="studentHeadAwayCount"></span>
+                    </div>
+                    <div class="card-body" id="openUrlList">
+
+
+
                     </div>
                 </div>
             </div>
@@ -103,23 +144,28 @@
 <div th:replace="fragments/base-script-fragments :: base-script-js"></div>
 <!-- Datables Core -->
 <script type="application/javascript" th:src="@{/dist/plugins/datatables.net/jquery.dataTables.min.js}"></script>
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-bs4/dataTables.bootstrap4.min.js}"></script>
+<script type="application/javascript"
+        th:src="@{/dist/plugins/datatables.net-bs4/dataTables.bootstrap4.min.js}"></script>
 
 <!-- Datables Extension -->
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/dataTables.buttons.min.js}" ></script>
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.html5.min.js}" ></script>
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.print.min.js}" ></script>
-<script type="application/javascript" th:src="@{/dist/plugins/jszip/jszip.min.js}" ></script>
+<script type="application/javascript"
+        th:src="@{/dist/plugins/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.html5.min.js}"></script>
+<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons/js/buttons.print.min.js}"></script>
+<script type="application/javascript" th:src="@{/dist/plugins/jszip/jszip.min.js}"></script>
 <!--<script type="application/javascript" th:src="@{/dist/plugins/pdfmake/pdfmake.min.js}" ></script>-->
 <!--<script type="application/javascript" th:src="@{/dist/plugins/pdfmake/vfs_fonts.js" ></script>-->
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-buttons-bs4/buttons.bootstrap4.min.js}" ></script>
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-colreorder/dataTables.colReorder.min.js}" ></script>
-<script type="application/javascript" th:src="@{/dist/plugins/datatables.net-colreorder-bs4/colReorder.bootstrap4.min.js}" ></script>
+<script type="application/javascript"
+        th:src="@{/dist/plugins/datatables.net-buttons-bs4/buttons.bootstrap4.min.js}"></script>
+<script type="application/javascript"
+        th:src="@{/dist/plugins/datatables.net-colreorder/dataTables.colReorder.min.js}"></script>
+<script type="application/javascript"
+        th:src="@{/dist/plugins/datatables.net-colreorder-bs4/colReorder.bootstrap4.min.js}"></script>
 
 <!-- Datatables Init -->
-<script  type="application/javascript" th:src="@{/dist/js/pages/tables-dynamic.init.min.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/js/pages/tables-dynamic.init.min.js}"></script>
 
-<script  type="application/javascript" th:src="@{/dist/js/template-pages/student-controller.js}" ></script>
+<script type="application/javascript" th:src="@{/dist/js/template-pages/student-controller.js}"></script>
 </body>
 
 </html>

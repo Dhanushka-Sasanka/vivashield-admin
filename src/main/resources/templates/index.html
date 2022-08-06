@@ -57,61 +57,23 @@
                 <div class="">
                     <!-- RECENT PURCHASES -->
                     <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Recent Sessions</h3>
-<!--                            <div class="right">-->
-<!--                                <span class="link"><i class="fa fa-shopping-bag"></i> <a href="#">View all purchases</a></span>-->
-<!--                            </div>-->
+                        <div class="card-header">
+                            <h3 class="card-title">All Sessions</h3>
                         </div>
-                        <div class="card-body p-0">
+                        <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-minimal table-fullwidth table-striped">
-                                    <thead>
-                                    <tr><th>ORDER NO.</th><th>NAME</th><th>AMOUNT</th><th>DATE &amp; TIME</th><th>STATUS</th></tr>
+                                <table id="datatable-basic" class="table table-hover table-bordered">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>Evaluator</th>
+                                        <th>Session ID</th>
+                                        <th>Session Name</th>
+                                        <th>Start Date</th>
+                                        <th>Start Time</th>
+                                        <th>Status</th>
+                                    </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><a href="#">763648</a></td>
-                                        <td>Steve</td><td>$122</td>
-                                        <td>Oct 21, 2016 &nbsp;&nbsp;<span class="text-muted">10:23 AM</span></td>
-                                        <td><span class="badge badge-success">COMPLETED</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763649</a></td>
-                                        <td>Amber</td><td>$62</td>
-                                        <td>Oct 21, 2016 &nbsp;&nbsp;<span class="text-muted">10:18 AM</span></td>
-                                        <td><span class="badge badge-warning">PENDING</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763650</a></td>
-                                        <td>Michael</td><td>$34</td>
-                                        <td>Oct 18, 2016 &nbsp;&nbsp;<span class="text-muted">09:22 AM</span></td>
-                                        <td><span class="badge badge-danger">FAILED</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763651</a></td>
-                                        <td>Roger</td><td>$186</td>
-                                        <td>Oct 17, 2016 &nbsp;&nbsp;<span class="text-muted">08:47 AM</span></td>
-                                        <td><span class="badge badge-success">COMPLETED</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763652</a></td>
-                                        <td>Smith</td><td>$362</td>
-                                        <td>Oct 16, 2016 &nbsp;&nbsp;<span class="text-muted">11:18 PM</span></td>
-                                        <td><span class="badge badge-success">COMPLETED</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763651</a></td>
-                                        <td>Claudia</td><td>$112</td>
-                                        <td>Oct 15, 2016 &nbsp;&nbsp;<span class="text-muted">10:08 PM</span></td>
-                                        <td><span class="badge badge-success">COMPLETED</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">763650</a></td>
-                                        <td>Simon</td><td>$285</td>
-                                        <td>Oct 15, 2016 &nbsp;&nbsp;<span class="text-muted">09:42 PM</span></td>
-                                        <td><span class="badge badge-warning">PENDING</span></td>
-                                    </tr>
+                                    <tbody id="sessionTable">
                                     </tbody>
                                 </table>
                             </div>
@@ -141,6 +103,8 @@
 <!-- Init -->
 <!--base script fragment-->
 <script th:src="@{dist/js/pages/dashboard3.init.js}"></script>
+
+<script  type="application/javascript" th:src="@{/dist/js/template-pages/session-controller.js}" ></script>
 </body>
 
 </html>

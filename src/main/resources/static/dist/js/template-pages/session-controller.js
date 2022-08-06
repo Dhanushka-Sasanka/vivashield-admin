@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     function getAllSessionDetails() {
-        // var nic = $('#passengerSearchNIC').val();
+
         $.ajax({
             type: "GET",
             url: `${BASE_URL}api/session`,
@@ -37,7 +37,7 @@ $(document).ready(function () {
                 "<td class='text-center text-primary'>" + sessionName + "</td>" +
                 "<td class='text-center'>" + startDate + "</td>" +
                 "<td class='text-center'>" + startTime + "</td>" +
-                "<td class='text-center'>" + status + "</td>" +
+                "<td class='text-center'><span class='badge badge-success'>" + status +"</span></td>" +
                 // "<td class='text-center text-danger'>" + button + "</td>" +
                 "</tr>";
 

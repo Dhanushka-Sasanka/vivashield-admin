@@ -42,6 +42,19 @@ public class StudentController {
         return studentService.searchStudent(email , password);
     }
 
+    @PatchMapping("/student/update-session")
+    public Map<String, Boolean> updateStudentSession(@RequestBody Student student) {
+        return studentService.updateStudentSession(student);
+    }
 
+    @PatchMapping("/student/updateHeadAway")
+    public Map<String, Boolean> updateHeadAwayCount(@RequestBody Student student) {
+        return studentService.updateHeadAwayCount(student);
+    }
+
+    @GetMapping("/student/{sid}")
+    public ResponseEntity<Student> getStudentByID(@PathVariable("sid") Long sid) {
+        return studentService.getStudentByID(sid);
+    }
 }
 
