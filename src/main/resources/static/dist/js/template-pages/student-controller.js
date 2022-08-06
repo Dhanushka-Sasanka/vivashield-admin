@@ -188,6 +188,7 @@ function setSession(studentID) {
 
 function getView(studentID) {
 
+    $('#set_session_card').hide();
     $('#set_detail_card').hide();
 
     getAllStudentDetailsByID(studentID)
@@ -209,7 +210,7 @@ function getAllStudentDetailsByID(sid) {
             $('#studentIDForSessionDetails').text(response.studentID);
 
 
-            if (response.session.openTabUrls !== "") {
+            if (response.session.openTabUrls !== "" || response.session.awayHeadCount > 0) {
                 let openUrls = response.session.openTabUrls;
 
                 let openUrlList = openUrls.split(/##title: |##URL: /)
